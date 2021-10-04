@@ -1,0 +1,42 @@
+import requests
+
+# Coletar códigos das comissões
+url = "https://legis.senado.leg.br/comissoes/comissao?codcol=2441&data1=2021-01-01&data2=2021-10-21" # Data precisa ser atualizada à medida que os dias passam
+resposta = requests.get(url)
+html = resposta.text
+print(html)
+
+lista = []
+partes = html.split('<a href="./reuniao?reuniao=')
+
+def coleta_dados():
+  for parte in partes:
+    subpartes = parte.split('&amp;codcol=2441">')
+    conteudo = subpartes[0]
+    if len(conteudo) > 10:
+      continue 
+    if conteudo not in lista:
+      lista.append(conteudo)
+  print(lista)
+
+coleta_dados()
+
+# Coleta site onde estão as notas taquigráficas
+
+lista2 = []
+
+def coleta_notas():
+  for codigo in lista:
+    url2 = "https://legis.senado.leg.br/dadosabertos/reuniaocomissao/notas/" + str(codigo)
+    resposta2 = requests.get(url2)
+    html2 = resposta2.text
+    parte = []
+    partes2 = html2.split('<UrlNotasTaquigraficas>')
+    if len(partes2) > 1:
+      partes2 = partes2[1]
+      subpartes2 = partes2.split('</UrlNotasTaquigraficas>')
+      lista2.append(subpartes2[0])
+    else:
+      continue
+
+coleta_notas()
