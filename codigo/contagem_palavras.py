@@ -18,8 +18,9 @@ palavras = s.split()
 
 print(Counter(palavras).most_common())
 
+counts = dict()
+
 def word_count(dado):
-    counts = dict()
     for word in dado:
       if len(word) > 2 and len(word) < 20 and '=' not in word:
         if word in counts: 
@@ -29,3 +30,12 @@ def word_count(dado):
     return counts
 
 print(word_count(palavras))
+
+
+a_file = open("contagem.csv", "w")
+
+writer = csv.writer(a_file)
+for key, value in counts.items():
+    writer.writerow([key, value])
+
+a_file.close()
