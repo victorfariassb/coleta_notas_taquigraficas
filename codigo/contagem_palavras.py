@@ -11,7 +11,7 @@ from collections import Counter
 
 s =','.join([str(item) for item in fala])
 
-for char in '-.,\n?![]':
+for char in '-.,\n?![]<>':
     s = s.replace(char, ' ')
 s = s.lower()
 palavras = s.split()
@@ -21,11 +21,11 @@ print(Counter(palavras).most_common())
 def word_count(dado):
     counts = dict()
     for word in dado:
-        if word in counts:
-          if len(word) > 2 and len(word) < 15 and '<' not in word: 
-            counts[word] += 1
+      if len(word) > 2 and len(word) < 20 and '=' not in word:
+        if word in counts: 
+          counts[word] += 1
         else:
-            counts[word] = 1
+          counts[word] = 1
     return counts
 
-print( word_count(palavras))
+print(word_count(palavras))
