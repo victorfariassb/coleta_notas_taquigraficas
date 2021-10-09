@@ -1,4 +1,3 @@
-autor_fala = []
 fala = []
 
 def coleta_notas(dado2):
@@ -14,8 +13,7 @@ def coleta_notas(dado2):
     texto3 = texto3.replace('title="Áudio"><img src="https://www.senado.leg.br/atividade/img/sound.png" /></a> </div> </td> <td class="justificado">title="Áudio"><img src="https://www.senado.leg.br/atividade/img/sound.png" /></a> </div> </td> <td class="justificado">','')
     texto3 = texto3.replace('</span><span class="principalStyle">', '')
     texto3 = texto3.replace('</span></div></div><div><div class="anotacaoAberturaStyle"><span>(<i>S', '')
-    texto3 = texto3.replace('</span></div></div><div><div class="intercorrenciaCentralizadoStyle"><span>(<i>Tumulto no recinto.</i>)', '') 
-    texto3 = texto3.replace('</span></div></div><div><div class="intercorrenciaCentralizadoStyle"><span>(<i>Soa a campainha.</i>)', '') 
+    texto3 = texto3.replace('</span></div></div><div><div class="intercorrenciaCentralizadoStyle"><span>', '') 
     texto3 = texto3.replace('</span></div></div> </td> </tr> <tr id="quarto91"> <td class="hora">','')
     texto3 = texto3.replace('(<i>Pausa.</i>) <span', '')
     texto3 = texto3.replace('</span></div></div><div><div class="intercorrenciaCentralizadoStyle"><span>(<i>Interrupção do som.</i>) (<i>Pausa.</i>)','')
@@ -32,11 +30,10 @@ def coleta_notas(dado2):
     texto3 = texto3.replace('</div> <div class="my-2"> <a class="link link-deep" href="https://www12.senado.leg.br/institucional/falecomosenado" title="fale com o Senado"><i class="fas fa-phone u-flip-x mr-1"></i> Fale com o Senado</a> </div> </div> <div class="divider my-2"></div> <div class="d-flex justify-content-xl-center"> <span class="my-2">Senado Federal - Praça dos Três Poderes - Brasília DF - CEP 70165-900 | <span class="text-nowrap">Telefone: 0800 0 61 2211</span> </span> </div> </div> </footer> </div> </div> <script src="https://www25.senado.leg.br/senado-theme/js/jquery-1.11.1.js" type="text/javascript"></script> <script src="https://www25.senado.leg.br/senado-theme/js/bootstrap.js" type="text/javascript"></script> <script src="https://www25.senado.leg.br/senado-theme/js/bootstrap-hover-dropdown.js" type="text/javascript"></script> <script src="https://www25.senado.leg.br/senado-theme/js/bootstrap-datepicker.js" type="text/javascript"></script> <script src="https://www25.senado.leg.br/senado-theme/js/locales/bootstrap-datepicker.pt-BR.min.js" type="text/javascript"></script> <script type="text/javascript"\n\t\tsrc="https://www.senado.leg.br/inc/essencial-2020/js/essencial.js"></script> <script src="https://www25.senado.leg.br/atividade-portlet/js/escriba.js?browserId=other&amp;minifierType=js&amp;languageId=pt_BR&amp;b=6205&amp;t=1633127543000" type="text/javascript"></script> <script src="https://www25.senado.leg.br/notifications-portlet/notifications/js/main.js?browserId=other&amp;minifierType=js&amp;languageId=pt_BR&amp;b=6205&amp;t=1633127519000" type="text/javascript"></script> <script type="text/javascript">Liferay.Util.addInputFocus();</script> <script type="text/javascript">Liferay.Portlet.onLoad({canEditTitle:false,columnPos:0,isStatic:"end",namespacedId:"p_p_id_escriba_WAR_atividadeportlet_",portletId:"escriba_WAR_atividadeportlet",refreshURL:"\\x2fc\\x2fportal\\x2frender_portlet\\x3fp_l_id\\x3d43404\\x26p_p_id\\x3describa_WAR_atividadeportlet\\x26p_p_lifecycle\\x3d0\\x26p_t_lifecycle\\x3d0\\x26p_p_state\\x3dnormal\\x26p_p_mode\\x3dview\\x26p_p_col_id\\x3dcolumn-1\\x26p_p_col_pos\\x3d0\\x26p_p_col_count\\x3d1\\x26p_p_isolated\\x3d1\\x26currentURL\\x3d\\x252Fweb\\x252Fatividade\\x252Fnotas-taquigraficas\\x252F-\\x252Fnotas\\x252Fr\\x252F10292\\x26_escriba_WAR_atividadeportlet_cr\\x3d10292"});AUI().use("aui-base","liferay-menu","liferay-notice","liferay-poller","liferay-session",function(a){(function(){Liferay.Util.addInputType();Liferay.Portlet.ready(function(b,c){Liferay.Util.addInputType(c)});if(a.UA.mobile){Liferay.Util.addInputCancel()}})();(function(){new Liferay.Menu();var b=Liferay.Data.notices;for(var c=1;c<b.length;c++){new Liferay.Notice(b[c])}})();(function(){Liferay.Session=new Liferay.SessionBase({autoExtend:true,sessionLength:30,redirectOnExpire:false,redirectUrl:"https\\x3a\\x2f\\x2fwww25\\x2esenado\\x2eleg\\x2ebr\\x2fweb\\x2fguest",warningLength:1})})()});</script> <script src="https://www25.senado.leg.br/senado-theme/js/main.js?browserId=other&amp;minifierType=js&amp;languageId=pt_BR&amp;b=6205&amp;t=1633127526000" type="text/javascript"></script> <script type="text/javascript"></script> </body> </html> ', '')
     texto3 = texto3.replace('</b>','')
     texto3 = texto3.replace('<span>', '')
+    texto_completo.append(texto3)
     partes3 = texto3.split('<b>')
     for item in partes3[1:]:
-      partes4 = item.split(') – ')
-      if len(partes4) > 1:
-        autor_fala.append(partes4)
-        fala.append(partes4[1])
+      partes4 = item.split('</b>')
+      fala.append(partes4)
 
 coleta_notas(lista2)
