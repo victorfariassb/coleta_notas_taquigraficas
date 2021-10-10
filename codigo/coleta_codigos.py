@@ -9,7 +9,7 @@ Original file is located at
 
 import requests
 
-url = "https://legis.senado.leg.br/comissoes/comissao?codcol=2441&data1=2021-01-01&data2=2021-10-21"
+url = "https://legis.senado.leg.br/comissoes/comissao?codcol=2441&data1=2021-01-01&data2=2021-10-21"  # A data precisa ser atualizada, à medida que a CPI avança
 resposta = requests.get(url)
 html = resposta.text
 print(html)
