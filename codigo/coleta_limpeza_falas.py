@@ -5,6 +5,7 @@ def coleta_notas(dado2):
     url3 = link
     resposta3 = requests.get(url3)
     html3 = resposta3.text
+    # Depois de coletar o texto, faz-se uma série de limpezas no código
     texto3 = html3.replace('</span></div></div><div><div class="principalStyle">', '')
     texto3 = texto3.replace('</span></div><div class="principalStyle"><span>', '')
     texto3 = texto3.replace('</span><span class="intercorrenciaMesmoSegmentoStyle">', '')
