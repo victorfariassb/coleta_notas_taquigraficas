@@ -34,4 +34,4 @@ Por isso, decidi criar um programa (voltado especificamente para a CPI da Covid-
 4. **contagem_palavras.py** — Faz nova limpeza nos dados e conta quantas vezes cada palavra aparece no texto. Também salva os dados em um arquivo CSV.
 
 ## Script com programa unificado
-**notas_cpicovid.py** — Além dos quatro arquivos separados, também deixei um arquivo com todos os scripts juntos, de modo a simplificar o uso da ferramenta. Ao contrário dos outros, este não tem explicações em #.
+**notas_cpicovid.py** — Além dos quatro arquivos separados, também deixei um arquivo com todos os scripts juntos, de modo a simplificar o uso da ferramenta.
