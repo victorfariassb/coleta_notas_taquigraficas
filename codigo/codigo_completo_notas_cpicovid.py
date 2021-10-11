@@ -19,9 +19,9 @@ print(html)
 lista = []
 partes = html.split('<a href="./reuniao?reuniao=')
 
-def coleta_dados():
+def coleta_dados(codcol):
   for parte in partes:
-    subpartes = parte.split('&amp;codcol=2441">')
+    subpartes = parte.split('&amp;codcol=' + str(codcol) + '">')
     conteudo = subpartes[0]
     if len(conteudo) > 10:
       continue 
@@ -29,7 +29,7 @@ def coleta_dados():
       lista.append(conteudo)
   print(lista)
 
-coleta_dados()
+coleta_dados(2441) 
 
 """# Coleta site onde estão as notas taquigráficas"""
 
