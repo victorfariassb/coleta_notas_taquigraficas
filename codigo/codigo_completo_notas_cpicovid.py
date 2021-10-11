@@ -103,7 +103,7 @@ s =','.join([str(item) for item in fala])
 
 for char in """-.,\n?![]<>:;"'""":
     s = s.replace(char, ' ')
-s = s.lower()lower()
+s = s.lower()
 palavras = s.split()
 
 counts = dict()
