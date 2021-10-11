@@ -9,7 +9,8 @@ Original file is located at
 
 import requests
 
-url = "https://legis.senado.leg.br/comissoes/comissao?codcol=2441&data1=2021-01-01&data2=2021-10-21"  # A data precisa ser atualizada, à medida que a CPI avança
+# É possível coletar os códigos de outra comissão, para isso, mude a variável url para o link da comissão
+url = "https://legis.senado.leg.br/comissoes/comissao?codcol=2441&data1=2021-01-01&data2=2021-10-21"  # A data precisa ser atualizada, à medida que a comissão avança
 resposta = requests.get(url)
 html = resposta.text
 print(html)
@@ -17,9 +18,10 @@ print(html)
 lista = []
 partes = html.split('<a href="./reuniao?reuniao=')
 
-def coleta_dados():
+# É necessário colocar o código da comissão para retornar os códigos das sessões. O código da comissão é encontrado no link da comissão, em "codcol"
+def coleta_dados(codcol):
   for parte in partes:
-    subpartes = parte.split('&amp;codcol=2441">')
+    subpartes = parte.split('&amp;codcol=' + str(codcol) + '">')
     conteudo = subpartes[0]
     if len(conteudo) > 10:
       continue 
@@ -27,4 +29,4 @@ def coleta_dados():
       lista.append(conteudo)
   print(lista)
 
-coleta_dados()
+coleta_dados(2441) 
